@@ -1,0 +1,11 @@
+﻿<Solution>
+  <Folder Name="/misc/">
+    <File Path=".dockerignore" />
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src\Bot.Telegram\Bot.Telegram.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
