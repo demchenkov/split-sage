@@ -1,15 +1,10 @@
-using Microsoft.EntityFrameworkCore;
-using SplitSage.Bot.Telegram.Common.Application;
+using SplitSage.Bot.Telegram.Common.Infrastructure.Bot;
 using SplitSage.Bot.Telegram.Common.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("SplitSageDb");
-builder.Services.AddDbContext<AppDbContext>((sp, options) =>
-{
-    options.UseNpgsql(connectionString);
-});
-builder.Services.AddScoped<IAppDbContext>(provider => provider.GetRequiredService<AppDbContext>());
+builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddTelegramBot(builder.Configuration);
 
 var app = builder.Build();
 
